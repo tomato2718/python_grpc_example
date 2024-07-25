@@ -15,7 +15,7 @@ class ExampleRpc(ExampleRpcServicer):
         self, request: ExampleRequest, context: RpcContext
     ) -> ExampleResponse:
         save_image = SaveImageClient(".")
-        filename = str(ceil(request.timestamp))
-        image_id = save_image(filename=filename, image=request.image)
-        response = ExampleResponse(imageId=image_id)
+        filename = str(ceil(request.timestamp)) + ".jpg"
+        save_image(filename=filename, image=request.image)
+        response = ExampleResponse(imageId=filename)
         return response
