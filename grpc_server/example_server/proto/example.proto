@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+service ExampleRpc {
+  rpc ExampleCall (ExampleRequest) returns (ExampleResponse) {}
+}
+
+message ExampleRequest {
+  float timestamp = 1;
+  bytes image = 2;
+}
+
+message ExampleResponse {
+  string imageId = 1;
+}
